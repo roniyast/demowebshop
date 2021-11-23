@@ -1,11 +1,13 @@
 package com.demowebshop.pages;
 
+import com.demowebshop.constants.Constants;
 import com.demowebshop.utilities.ExcelUtility;
 import com.demowebshop.utilities.PageUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
 import java.util.List;
 
 public class RegisterPage {
@@ -14,9 +16,10 @@ public class RegisterPage {
     PageUtility page = new PageUtility();
     ExcelUtility excel = new ExcelUtility();
 
-    public RegisterPage(WebDriver driver) {
+    public RegisterPage(WebDriver driver) throws IOException {
         this.driver = driver;
     }
+
 
     private String gender = "//div[@class='gender']//label";
     private List<WebElement> genders = driver.findElements(By.xpath(gender));
@@ -32,6 +35,7 @@ public class RegisterPage {
     private WebElement confirmPassword = driver.findElement(By.id(confirmPasswordId));
     private String registerButtonId="register-button";
     private WebElement registerButton = driver.findElement(By.id(registerButtonId));
+
 
     public void selectGender(String genderToSelect) {
 

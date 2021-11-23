@@ -22,5 +22,4 @@ public class UserAccountPage {
         return page.getElementText(userName);
     }
 
-
 }

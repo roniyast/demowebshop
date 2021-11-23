@@ -22,27 +22,28 @@ public class HomePage {
         this.driver = driver;
     }
 
-
     private String _registerMenu = "//a[@class='ico-register']";
     private final WebElement registerMenu = driver.findElement(By.xpath(_registerMenu));
+    private String _loginMenu = "//a[@class='ico-login']";
+    private final WebElement loginMenu = driver.findElement(By.xpath(_loginMenu));
 
     public String getActualHomePageTitle() {
-
         return page.getPageTitle(driver);
 
     }
 
     public String getExpectedHomePageTitle() throws IOException {
-        List<String> readExcelData = excel.readExcel(Constants.EXCEL_FILE_PATH, Constants.SHEET_NAME);
+        List<String> readExcelData = excel.readExcel(Constants.EXCEL_FILE_PATH, Constants.SHEET_NAME_HOME_PAGE);
         return readExcelData.get(0);
     }
 
-    public RegisterPage clickOnRegisterMenu() {
-        //registerMenu.click();
+    public RegisterPage clickOnRegisterMenu() throws IOException {
+        page.clickOnElement(registerMenu);
         return new RegisterPage(driver);
     }
-    /*public LoginPage clickOnLoginMenu(){
-
-    }*/
+    public LoginPage clickOnLoginMenu(){
+        page.clickOnElement(loginMenu);
+        return new LoginPage(driver);
+    }
 }
 

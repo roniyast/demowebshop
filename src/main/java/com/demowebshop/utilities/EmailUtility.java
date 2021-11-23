@@ -15,13 +15,15 @@ import java.util.Date;
 import java.util.Properties;
 
 public class EmailUtility {
+
     public static void sendEmail(String filePath, String fileName, String rMailId) {
-        final String username= Constants.FROM_EMAIL ;
-        final String password= Constants.FROM_PASSWORD ;
+        Properties props = new Properties();
+        final String username= props.getProperty("from_email");
+        final String password=props.getProperty("from_password");
 
         String eDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
-        Properties props = new Properties();
+
         props.put("mail.smtp.auth", true);
         props.put("mail.smtp.starttls.enable", true);
         props.put("mail.smtp.host", "smtp.gmail.com");

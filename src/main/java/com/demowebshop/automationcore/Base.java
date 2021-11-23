@@ -87,7 +87,7 @@ public class Base {
     }
     @AfterSuite
     public void sendingEmail(){
-       EmailUtility.sendEmail(System.getProperty("user.dir")+"//test-output//","Extent.html","sheenroniya@gmail.com");
+       EmailUtility.sendEmail(System.getProperty("user.dir")+"//test-output//","Extent.html", prop.getProperty("to_email"));
        test.log(LogStatus.PASS, "Successfully triggered Email ");
     }
     public void takeScreenshot(ITestResult result) throws IOException {
