@@ -1,7 +1,11 @@
 package com.demowebshop.automationcore;
 
 import com.demowebshop.constants.Constants;
+import com.demowebshop.utilities.EmailUtility;
 import com.demowebshop.utilities.WaitUtility;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -11,9 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,6 +31,8 @@ public class Base {
     public WebDriver driver;
     FileInputStream file;
     public Properties prop;
+    public ExtentReports report;
+    static ExtentTest test;
     public Base()   {
         try {
             file = new FileInputStream(System.getProperty("user.dir")+ Constants.CONFIG_FILE);
@@ -56,7 +60,14 @@ public class Base {
         }
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(WaitUtility.PAGE_LOAD_WAIT, TimeUnit.SECONDS);
+        //driver.manage().timeouts().pageLoadTimeout(WaitUtility.PAGE_LOAD_WAIT, TimeUnit.SECONDS);
+        test.log(LogStatus.PASS, "Successfully initialized test");
+    }
+
+    @BeforeTest
+    public void errorLogging(){
+        report = new ExtentReports(System.getProperty("user.dir")+"//test-output//Extent.html",true);
+        test = report.startTest("Demo Web Shop");
     }
 
     @BeforeMethod
@@ -65,12 +76,19 @@ public class Base {
         String url= prop.getProperty("url");
         testInitialize(browserName);
         driver.get(url);
+        test.log(LogStatus.PASS, "Successfully Navigated to the url ");
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
        takeScreenshot(result);
+        test.log(LogStatus.PASS, "Successfully captured screen shot ");
         driver.close();
+    }
+    @AfterSuite
+    public void sendingEmail(){
+       EmailUtility.sendEmail(System.getProperty("user.dir")+"//test-output//","Extent.html","sheenroniya@gmail.com");
+       test.log(LogStatus.PASS, "Successfully triggered Email ");
     }
     public void takeScreenshot(ITestResult result) throws IOException {
         if(ITestResult.FAILURE == result.getStatus()){

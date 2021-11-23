@@ -3,6 +3,25 @@
 <suite name="Regression Suite">
     <test name="Functional Test">
         <parameter name="browser" value="chrome"/>
-        <classes/>
+        <classes>
+            <class name="com.demowebshop.testscripts.HomeTest">
+                <methods>
+                    <include name="verifyHomePageTitle"/>
+                </methods>
+            </class>
+           <!-- <class name="com.demowebshop.testscripts.RegisterTest">
+                <methods>
+                    <include name="verifyUserRegistration"/>
+                </methods>
+            </class>-->
+          <!--  <class name="com.demowebshop.testscripts.LoginTest">
+                <methods>
+                </methods>
+            </class>
+            <class name="com.demowebshop.testscripts.UserAccountTest">
+                <methods>
+                </methods>
+            </class>-->
+        </classes>
     </test>
 </suite>
