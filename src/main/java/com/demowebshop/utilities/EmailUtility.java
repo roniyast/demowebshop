@@ -10,17 +10,34 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
 public class EmailUtility {
+    public Properties prop;
+    FileInputStream file;
+    public EmailUtility(){
+        try {
+            file = new FileInputStream(System.getProperty("user.dir")+ Constants.CONFIG_FILE);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        prop=new Properties();
+        try {
+            prop.load(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public static void sendEmail(String filePath, String fileName, String rMailId) {
+    public  void sendEmail(String filePath, String fileName, String rMailId) {
         Properties props = new Properties();
-        final String username= props.getProperty("from_email");
-        final String password=props.getProperty("from_password");
-
+        final String username= prop.getProperty("from_email");
+        final String password=prop.getProperty("from_password");
         String eDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
 
@@ -44,7 +61,7 @@ public class EmailUtility {
 
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(rMailId));
 
-            message.setSubject("Automation Execution Healing Results_" + eDate);
+            message.setSubject("Demo Web Shop Project_" + eDate);
 
             BodyPart messageBodyPart = new MimeBodyPart();
             BodyPart attachmentPart = new MimeBodyPart();
@@ -55,8 +72,8 @@ public class EmailUtility {
             attachmentPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setText("Dear Stakeholder,\n" +
                     "\n" +
-                    "Please be informed that there are change in attribute values in \"Auto Healing Bot contatc\" application. Changes are noticed during automation execution on " + eDate + ". Attached details of changed attributes.\n" +
-                    "\n" +
+                    "These are the test results of \"Demo Web Shop Project\" . Automation execution was conducted on " + eDate + ".\n" +
+                    "\n" +"Screenshots of the results are also attached . PFA .\n"+
                     "Thanks & Regards,\n" +
                     "Automation Team");
             attachmentPart.setFileName(fileName);
@@ -65,7 +82,6 @@ public class EmailUtility {
             message.setContent(multipart);
             transport.connect();
             Transport.send(message);
-            System.out.println("MAIL TRIGGERED");
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
         } catch (MessagingException e) {

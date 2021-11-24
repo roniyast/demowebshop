@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Regression Suite" duration-ms="9122" started-at="2021-11-24T12:12:29 IST" finished-at="2021-11-24T12:12:38 IST">
+  <suite name="Regression Suite" duration-ms="13101" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:23 IST">
     <groups>
     </groups>
-    <test name="Functional Test" duration-ms="9122" started-at="2021-11-24T12:12:29 IST" finished-at="2021-11-24T12:12:38 IST">
-      <class name="com.demowebshop.testscripts.RegisterTest">
-        <test-method status="PASS" signature="errorLogging()[pri:0, instance:com.demowebshop.testscripts.RegisterTest@79be0360]" name="errorLogging" is-config="true" duration-ms="300" started-at="2021-11-24T12:12:29 IST" finished-at="2021-11-24T12:12:30 IST">
+    <test name="Functional Test" duration-ms="13101" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:23 IST">
+      <class name="com.demowebshop.testscripts.HomeTest">
+        <test-method status="PASS" signature="errorLogging()[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="errorLogging" is-config="true" duration-ms="146" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:10 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- errorLogging -->
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@79be0360]" name="setup" is-config="true" duration-ms="6422" started-at="2021-11-24T12:12:30 IST" finished-at="2021-11-24T12:12:36 IST">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="setup" is-config="true" duration-ms="12294" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:22 IST">
           <params>
             <param index="0">
               <value>
@@ -22,26 +22,30 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyUserRegistration()[pri:2, instance:com.demowebshop.testscripts.RegisterTest@79be0360]" name="verifyUserRegistration" duration-ms="2239" started-at="2021-11-24T12:12:36 IST" description="verification of Registration Title" finished-at="2021-11-24T12:12:38 IST">
+        <test-method status="PASS" signature="verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="verifyHomePageTitle" duration-ms="297" started-at="2021-11-24T15:06:22 IST" description="verification of home page Title" finished-at="2021-11-24T15:06:22 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyUserRegistration -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@79be0360]" name="tearDown" is-config="true" duration-ms="85" started-at="2021-11-24T12:12:38 IST" finished-at="2021-11-24T12:12:38 IST">
+        </test-method> <!-- verifyHomePageTitle -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="tearDown" is-config="true" duration-ms="75" started-at="2021-11-24T15:06:22 IST" finished-at="2021-11-24T15:06:22 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUserRegistration status=SUCCESS method=RegisterTest.verifyUserRegistration()[pri:2, instance:com.demowebshop.testscripts.RegisterTest@79be0360] output={null}]]]>
+                <![CDATA[[TestResult name=verifyHomePageTitle status=SUCCESS method=HomeTest.verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@22a67b4] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="sendingEmail()[pri:0, instance:com.demowebshop.testscripts.RegisterTest@79be0360]" name="sendingEmail" is-config="true" duration-ms="76" started-at="2021-11-24T12:12:38 IST" finished-at="2021-11-24T12:12:38 IST">
+        <test-method status="PASS" signature="endReport()[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="endReport" is-config="true" duration-ms="246" started-at="2021-11-24T15:06:22 IST" finished-at="2021-11-24T15:06:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endReport -->
+        <test-method status="PASS" signature="sendingEmail()[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="sendingEmail" is-config="true" duration-ms="8187" started-at="2021-11-24T15:06:23 IST" finished-at="2021-11-24T15:06:31 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendingEmail -->
-      </class> <!-- com.demowebshop.testscripts.RegisterTest -->
+      </class> <!-- com.demowebshop.testscripts.HomeTest -->
     </test> <!-- Functional Test -->
   </suite> <!-- Regression Suite -->
 </testng-results>

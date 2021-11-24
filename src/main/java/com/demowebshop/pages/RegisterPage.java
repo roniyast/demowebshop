@@ -105,7 +105,7 @@ public class RegisterPage {
         return new UserAccountPage(driver);
     }
     public String randomStringGeneration(){
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         int length = 5;

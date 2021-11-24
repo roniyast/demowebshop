@@ -31,6 +31,7 @@ public class Base {
     public WebDriver driver;
     FileInputStream file;
     public Properties prop;
+    EmailUtility email;
     public ExtentReports report;
     static ExtentTest test;
     public Base()   {
@@ -85,10 +86,17 @@ public class Base {
         test.log(LogStatus.PASS, "Successfully captured screen shot ");
         driver.close();
     }
+    @AfterTest
+    public void endReport(){
+        report.endTest(test);
+        report.flush();
+    }
     @AfterSuite
     public void sendingEmail(){
-       EmailUtility.sendEmail(System.getProperty("user.dir")+"//test-output//","Extent.html", prop.getProperty("to_email"));
+        email = new EmailUtility();
+        email.sendEmail(System.getProperty("user.dir")+"//test-output//","Extent.html", prop.getProperty("to_email"));
        test.log(LogStatus.PASS, "Successfully triggered Email ");
+
     }
     public void takeScreenshot(ITestResult result) throws IOException {
         if(ITestResult.FAILURE == result.getStatus()){
@@ -102,5 +110,6 @@ public class Base {
         }
 
     }
+
 
 }

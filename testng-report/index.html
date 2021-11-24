@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Regression_Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Regression_Suite" title="com.demowebshop.testscripts.RegisterTest" hash-for-method="verifyUserRegistration">verifyUserRegistration</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression_Suite" title="com.demowebshop.testscripts.HomeTest" hash-for-method="verifyHomePageTitle">verifyHomePageTitle</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Regression_Suite -->
@@ -122,16 +122,16 @@
           <div class="suite-Regression_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.demowebshop.testscripts.RegisterTest</span>
+              <span class="class-name">com.demowebshop.testscripts.HomeTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyUserRegistration">
-                  </a> <!-- verifyUserRegistration -->
-                  <span class="method-name">verifyUserRegistration</span>
+                  <a name="verifyHomePageTitle">
+                  </a> <!-- verifyHomePageTitle -->
+                  <span class="method-name">verifyHomePageTitle</span>
                   <em>
-(verification of Registration Title)                  </em>
+(verification of home page Title)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -149,11 +149,11 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;Functional Test&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.demowebshop.testscripts.RegisterTest&quot;&gt;
+      &lt;class name=&quot;com.demowebshop.testscripts.HomeTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifyUserRegistration&quot;/&gt;
+          &lt;include name=&quot;verifyHomePageTitle&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.demowebshop.testscripts.RegisterTest --&gt;
+      &lt;/class&gt; &lt;!-- com.demowebshop.testscripts.HomeTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Functional Test --&gt;
 &lt;/suite&gt; &lt;!-- Regression Suite --&gt;
@@ -195,14 +195,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyUserRegistration')
-data.setCell(0, 2, 'com.demowebshop.testscripts.RegisterTest')
-data.setCell(0, 3, 2239);
+data.setCell(0, 1, 'verifyHomePageTitle')
+data.setCell(0, 2, 'com.demowebshop.testscripts.HomeTest')
+data.setCell(0, 3, 297);
 window.suiteTableData['Regression_Suite']= { tableData: data, tableDiv: 'times-div-Regression_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 297 ms</span>
               <div id="times-div-Regression_Suite">
               </div> <!-- times-div-Regression_Suite -->
             </div> <!-- times-div -->
@@ -228,26 +228,30 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.demowebshop.testscripts.RegisterTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.demowebshop.testscripts.HomeTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">errorLogging</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
                 <span class="method-name">setup(chrome)</span>
-                <span class="method-start">362 ms</span>
+                <span class="method-start">179 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyUserRegistration</span>
-                <span class="method-start">6786 ms</span>
+                <span class="method-name">verifyHomePageTitle</span>
+                <span class="method-start">12474 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyUserRegistration status=SUCCESS method=RegisterTest.verifyUserRegistration()[...)</span>
-                <span class="method-start">9026 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyHomePageTitle status=SUCCESS method=HomeTest.verifyHomePageTitle()[pri:1, ins...)</span>
+                <span class="method-start">12773 ms</span>
               </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">endReport</span>
+                <span class="method-start">12851 ms</span>
+              </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">sendingEmail</span>
-                <span class="method-start">9134 ms</span>
+                <span class="method-start">13106 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
