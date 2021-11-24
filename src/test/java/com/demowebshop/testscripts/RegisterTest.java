@@ -8,6 +8,7 @@ import com.demowebshop.pages.UserAccountPage;
 import com.demowebshop.utilities.ExcelUtility;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,8 +20,6 @@ public class RegisterTest extends Base {
 
     RegisterPage register;
     UserAccountPage user;
-    public ExtentReports report;
-    static ExtentTest test;
     ExcelUtility excel;
     HomePage home;
 
@@ -42,9 +41,13 @@ public class RegisterTest extends Base {
         register.enterConfirmPassword(readExcelData.get(5));
         user = register.clickOnRegisterButton();
 
+        test.log(LogStatus.PASS, "Successfully Registered");
+
         String actualUserName=email;
         String expectedUserName=user.verifyUserName();
         Assert.assertEquals(actualUserName,expectedUserName,"ERROR : Login Failed");
+
+        test.log(LogStatus.PASS, "Successfully Asserted");
     }
 
 

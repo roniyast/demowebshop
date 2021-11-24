@@ -114,9 +114,8 @@ public class RegisterPage {
             char randomChar = alphabet.charAt(index);
             sb.append(randomChar);
         }
-        String randomString = sb.toString()+"@gmail.com";
-        System.out.println("Random String is: " + randomString);
-        return randomString;
+        String randomStringEmail = sb.toString()+"@gmail.com";
+        return randomStringEmail;
     }
 
 }

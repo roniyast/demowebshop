@@ -9,6 +9,7 @@ import com.demowebshop.pages.UserAccountPage;
 import com.demowebshop.utilities.ExcelUtility;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,14 +20,14 @@ public class LoginTest extends Base {
 
     HomePage home;
     UserAccountPage user;
-    public ExtentReports report;
-    static ExtentTest test;
+
     ExcelUtility excel;
     LoginPage loginPage;
 
 
     @Test(priority = 5, enabled = true, description = "verification of User Login")
     public void verifyUserLogin() throws IOException {
+
         home = new HomePage(driver);
         loginPage = new LoginPage(driver);
         excel=new ExcelUtility();
@@ -37,9 +38,11 @@ public class LoginTest extends Base {
         loginPage.RememberMeLoginCheck(readExcelData.get(2));
 
         user= loginPage.loginButtonClick();
+        test.log(LogStatus.PASS, "Successfully Logged in");
 
         String actualUserName = readExcelData.get(0);
         String expectedUserName = user.verifyUserName();
         Assert.assertEquals(actualUserName, expectedUserName, "ERROR : Login Failed");
+        test.log(LogStatus.PASS, "Successfully Asserted");
     }
 }

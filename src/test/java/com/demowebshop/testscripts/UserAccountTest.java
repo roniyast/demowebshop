@@ -8,8 +8,6 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 public class UserAccountTest extends Base {
     HomePage home;
-    public ExtentReports report;
-    static ExtentTest test;
     UserAccountPage userAccount;
 
 

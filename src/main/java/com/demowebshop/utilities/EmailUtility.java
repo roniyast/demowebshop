@@ -20,21 +20,8 @@ import java.util.Properties;
 public class EmailUtility {
     public Properties prop;
     FileInputStream file;
-    public EmailUtility(){
-        try {
-            file = new FileInputStream(System.getProperty("user.dir")+ Constants.CONFIG_FILE);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        prop=new Properties();
-        try {
-            prop.load(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public  void sendEmail(String filePath, String fileName, String rMailId) {
+    public  void sendEmail(String filePath, String fileName, String rMailId,Properties prop) {
         Properties props = new Properties();
         final String username= prop.getProperty("from_email");
         final String password=prop.getProperty("from_password");
@@ -73,7 +60,7 @@ public class EmailUtility {
             messageBodyPart.setText("Dear Stakeholder,\n" +
                     "\n" +
                     "These are the test results of \"Demo Web Shop Project\" . Automation execution was conducted on " + eDate + ".\n" +
-                    "\n" +"Screenshots of the results are also attached . PFA .\n"+
+                    "\n" +" PFA .\n\n\n"+
                     "Thanks & Regards,\n" +
                     "Automation Team");
             attachmentPart.setFileName(fileName);

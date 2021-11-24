@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="6" total="9" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Regression Suite" duration-ms="13101" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:23 IST">
+  <suite name="Regression Suite" duration-ms="22190" started-at="2021-11-24T16:45:13 IST" finished-at="2021-11-24T16:45:35 IST">
     <groups>
     </groups>
-    <test name="Functional Test" duration-ms="13101" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:23 IST">
-      <class name="com.demowebshop.testscripts.HomeTest">
-        <test-method status="PASS" signature="errorLogging()[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="errorLogging" is-config="true" duration-ms="146" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:10 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- errorLogging -->
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="setup" is-config="true" duration-ms="12294" started-at="2021-11-24T15:06:10 IST" finished-at="2021-11-24T15:06:22 IST">
+    <test name="Functional Test" duration-ms="22190" started-at="2021-11-24T16:45:13 IST" finished-at="2021-11-24T16:45:35 IST">
+      <class name="com.demowebshop.testscripts.LoginTest">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.LoginTest@30b8a058]" name="setup" is-config="true" duration-ms="4471" started-at="2021-11-24T16:45:23 IST" finished-at="2021-11-24T16:45:27 IST">
           <params>
             <param index="0">
               <value>
@@ -22,26 +18,86 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="verifyHomePageTitle" duration-ms="297" started-at="2021-11-24T15:06:22 IST" description="verification of home page Title" finished-at="2021-11-24T15:06:22 IST">
+        <test-method status="PASS" signature="verifyUserLogin()[pri:5, instance:com.demowebshop.testscripts.LoginTest@30b8a058]" name="verifyUserLogin" duration-ms="1476" started-at="2021-11-24T16:45:27 IST" description="verification of User Login" finished-at="2021-11-24T16:45:29 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyHomePageTitle -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="tearDown" is-config="true" duration-ms="75" started-at="2021-11-24T15:06:22 IST" finished-at="2021-11-24T15:06:22 IST">
+        </test-method> <!-- verifyUserLogin -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.LoginTest@30b8a058]" name="tearDown" is-config="true" duration-ms="35" started-at="2021-11-24T16:45:29 IST" finished-at="2021-11-24T16:45:29 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyHomePageTitle status=SUCCESS method=HomeTest.verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@22a67b4] output={null}]]]>
+                <![CDATA[[TestResult name=verifyUserLogin status=SUCCESS method=LoginTest.verifyUserLogin()[pri:5, instance:com.demowebshop.testscripts.LoginTest@30b8a058] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="endReport()[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="endReport" is-config="true" duration-ms="246" started-at="2021-11-24T15:06:22 IST" finished-at="2021-11-24T15:06:23 IST">
+      </class> <!-- com.demowebshop.testscripts.LoginTest -->
+      <class name="com.demowebshop.testscripts.RegisterTest">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@7494e528]" name="setup" is-config="true" duration-ms="4238" started-at="2021-11-24T16:45:29 IST" finished-at="2021-11-24T16:45:33 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyUserRegistration()[pri:2, instance:com.demowebshop.testscripts.RegisterTest@7494e528]" name="verifyUserRegistration" duration-ms="2124" started-at="2021-11-24T16:45:33 IST" description="verification of Registration Title" finished-at="2021-11-24T16:45:35 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserRegistration -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@7494e528]" name="tearDown" is-config="true" duration-ms="31" started-at="2021-11-24T16:45:35 IST" finished-at="2021-11-24T16:45:35 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserRegistration status=SUCCESS method=RegisterTest.verifyUserRegistration()[pri:2, instance:com.demowebshop.testscripts.RegisterTest@7494e528] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.demowebshop.testscripts.RegisterTest -->
+      <class name="com.demowebshop.testscripts.HomeTest">
+        <test-method status="PASS" signature="errorLogging()[pri:0, instance:com.demowebshop.testscripts.HomeTest@3224f60b]" name="errorLogging" is-config="true" duration-ms="173" started-at="2021-11-24T16:45:13 IST" finished-at="2021-11-24T16:45:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- errorLogging -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.HomeTest@3224f60b]" name="setup" is-config="true" duration-ms="8970" started-at="2021-11-24T16:45:13 IST" finished-at="2021-11-24T16:45:22 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@3224f60b]" name="verifyHomePageTitle" duration-ms="342" started-at="2021-11-24T16:45:22 IST" description="verification of home page Title" finished-at="2021-11-24T16:45:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePageTitle -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.HomeTest@3224f60b]" name="tearDown" is-config="true" duration-ms="51" started-at="2021-11-24T16:45:23 IST" finished-at="2021-11-24T16:45:23 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyHomePageTitle status=SUCCESS method=HomeTest.verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@3224f60b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:com.demowebshop.testscripts.HomeTest@3224f60b]" name="endReport" is-config="true" duration-ms="234" started-at="2021-11-24T16:45:35 IST" finished-at="2021-11-24T16:45:35 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-        <test-method status="PASS" signature="sendingEmail()[pri:0, instance:com.demowebshop.testscripts.HomeTest@22a67b4]" name="sendingEmail" is-config="true" duration-ms="8187" started-at="2021-11-24T15:06:23 IST" finished-at="2021-11-24T15:06:31 IST">
+        <test-method status="PASS" signature="sendingEmail()[pri:0, instance:com.demowebshop.testscripts.HomeTest@3224f60b]" name="sendingEmail" is-config="true" duration-ms="5954" started-at="2021-11-24T16:45:35 IST" finished-at="2021-11-24T16:45:41 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendingEmail -->
