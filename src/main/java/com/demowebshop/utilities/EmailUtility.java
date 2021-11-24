@@ -54,7 +54,8 @@ public class EmailUtility {
             BodyPart attachmentPart = new MimeBodyPart();
             Multipart multipart = new MimeMultipart();
 
-            String file = filePath + "//" + fileName;
+            String file = filePath + fileName;
+            System.out.println(file);
             DataSource source = new FileDataSource(file);
             attachmentPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setText("Dear Stakeholder,\n" +

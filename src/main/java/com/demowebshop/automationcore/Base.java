@@ -67,7 +67,7 @@ public class Base {
 
     @BeforeTest
     public void errorLogging(){
-        report = new ExtentReports(System.getProperty("user.dir")+"//test-output//Extent.html",true);
+        report = new ExtentReports(System.getProperty("user.dir")+"\\testng-report\\Extent.html",true);
         test = report.startTest("Demo Web Shop");
     }
 
@@ -94,8 +94,8 @@ public class Base {
     @AfterSuite
     public void sendingEmail(){
         email = new EmailUtility();
-        email.sendEmail(System.getProperty("user.dir")+"//test-output//","Extent.html", prop.getProperty("to_email"),prop);
-       test.log(LogStatus.PASS, "Successfully triggered Email ");
+        email.sendEmail(System.getProperty("user.dir")+"\\testng-report\\","Extent.html", prop.getProperty("to_email"),prop);
+        test.log(LogStatus.PASS, "Successfully triggered Email ");
 
     }
     public void takeScreenshot(ITestResult result) throws IOException {

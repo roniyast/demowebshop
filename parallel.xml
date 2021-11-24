@@ -5,7 +5,7 @@
         <listener class-name="com.demowebshop.reports.ExtentReportListener">
         </listener>
     </listeners>
-    <test name="Functional Test">
+    <test name="Functional Test" parallel="methods" thread-count="3">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.demowebshop.testscripts.HomeTest">
@@ -13,16 +13,16 @@
                     <include name="verifyHomePageTitle"/>
                 </methods>
             </class>
-            <!--<class name="com.demowebshop.testscripts.LoginTest">
-                  <methods>
-                      <include name="verifyUserLogin"/>
-                  </methods>
-              </class>
-              <class name="com.demowebshop.testscripts.RegisterTest">
-                  <methods>
-                      <include name="verifyUserRegistration"/>
-                  </methods>
-              </class>-->
+            <class name="com.demowebshop.testscripts.LoginTest">
+                <methods>
+                    <include name="verifyUserLogin"/>
+                </methods>
+            </class>
+            <class name="com.demowebshop.testscripts.RegisterTest">
+                <methods>
+                    <include name="verifyUserRegistration"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

@@ -10,7 +10,6 @@
       <class name="com.demowebshop.testscripts.HomeTest">
         <methods>
           <include name="errorLogging"/>
-          <include name="setup"/>
           <include name="verifyHomePageTitle"/>
           <include name="endReport"/>
           <include name="tearDown"/>
