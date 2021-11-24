@@ -20,7 +20,6 @@ public class PageUtility {
         element.click();
     }
     public void enterText(WebElement element,String value){
-
         element.sendKeys(value);
     }
     public String getAttributeValue(WebElement element, String attribute){

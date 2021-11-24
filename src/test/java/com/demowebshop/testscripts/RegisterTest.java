@@ -16,16 +16,20 @@ import java.util.List;
 
 public class RegisterTest extends Base {
 
-    HomePage home= new HomePage(driver);
+
     RegisterPage register;
     UserAccountPage user;
     public ExtentReports report;
     static ExtentTest test;
     ExcelUtility excel;
+    HomePage home;
 
     @Test(priority=2,enabled=true,description ="verification of Registration Title")
     public void verifyUserRegistration() throws IOException {
-
+        home= new HomePage(driver);
+        user = new UserAccountPage(driver);
+        register = new RegisterPage(driver);
+        excel=new ExcelUtility();
         List<String> readExcelData = excel.readExcel(Constants.EXCEL_FILE_PATH, Constants.SHEET_NAME_REGISTRATION_PAGE);
 
         register=home.clickOnRegisterMenu();
@@ -37,7 +41,7 @@ public class RegisterTest extends Base {
         register.enterConfirmPassword(readExcelData.get(5));
         user = register.clickOnRegisterButton();
 
-        String actualUserName="roniyat@gmail.com";
+        String actualUserName=readExcelData.get(3);
         String expectedUserName=user.verifyUserName();
         Assert.assertEquals(actualUserName,expectedUserName,"ERROR : Login Failed");
     }

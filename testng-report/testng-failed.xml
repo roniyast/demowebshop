@@ -4,15 +4,15 @@
   <test thread-count="5" name="Functional Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.demowebshop.testscripts.HomeTest">
+      <class name="com.demowebshop.testscripts.RegisterTest">
         <methods>
           <include name="errorLogging"/>
           <include name="setup"/>
-          <include name="verifyHomePageTitle"/>
+          <include name="verifyUserRegistration"/>
           <include name="tearDown"/>
           <include name="sendingEmail"/>
         </methods>
-      </class> <!-- com.demowebshop.testscripts.HomeTest -->
+      </class> <!-- com.demowebshop.testscripts.RegisterTest -->
     </classes>
   </test> <!-- Functional Test(failed) -->
 </suite> <!-- Failed suite [Regression Suite] -->

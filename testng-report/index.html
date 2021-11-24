@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Regression_Suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Regression_Suite" title="com.demowebshop.testscripts.HomeTest" hash-for-method="verifyHomePageTitle">verifyHomePageTitle</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Regression_Suite" title="com.demowebshop.testscripts.RegisterTest" hash-for-method="verifyUserRegistration">verifyUserRegistration</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Regression_Suite -->
@@ -122,24 +122,47 @@
           <div class="suite-Regression_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.demowebshop.testscripts.HomeTest</span>
+              <span class="class-name">com.demowebshop.testscripts.RegisterTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyHomePageTitle">
-                  </a> <!-- verifyHomePageTitle -->
-                  <span class="method-name">verifyHomePageTitle</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.demowebshop.pages.HomePage.&lt;init&gt;(HomePage.java:27)
-	at com.demowebshop.testscripts.HomeTest.verifyHomePageTitle(HomeTest.java:21)
+                  <a name="verifyUserRegistration">
+                  </a> <!-- verifyUserRegistration -->
+                  <span class="method-name">verifyUserRegistration</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[@class=&apos;header-links&apos;]//a[@class=&apos;account&apos;]&quot;}
+  (Session info: chrome=96.0.4664.45)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.0.0&apos;, revision: &apos;3a21814679&apos;
+System info: host: &apos;DESKTOP-A5NO5OP&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_301&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [99fea32be8b6b2a74eca5982dd92dc97, findElement {using=xpath, value=//div[@class=&apos;header-links&apos;]//a[@class=&apos;account&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.45, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\Roniya\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:53880}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53880/devtoo..., se:cdpVersion: 96.0.4664.45, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 99fea32be8b6b2a74eca5982dd92dc97
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:139)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:559)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:383)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:375)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at com.sun.proxy.$Proxy16.getText(Unknown Source)
+	at com.demowebshop.utilities.PageUtility.getElementText(PageUtility.java:110)
+	at com.demowebshop.pages.UserAccountPage.verifyUserName(UserAccountPage.java:31)
+	at com.demowebshop.testscripts.RegisterTest.verifyUserRegistration(RegisterTest.java:45)
 	at java.util.ArrayList.forEach(ArrayList.java:1259)
 	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
 	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
-... Removed 24 stack frames
+... Removed 28 stack frames
 </div> <!-- stack-trace -->
                   <em>
-(verification of home page Title)                  </em>
+(verification of Registration Title)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -157,11 +180,11 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;Functional Test&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.demowebshop.testscripts.HomeTest&quot;&gt;
+      &lt;class name=&quot;com.demowebshop.testscripts.RegisterTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifyHomePageTitle&quot;/&gt;
+          &lt;include name=&quot;verifyUserRegistration&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.demowebshop.testscripts.HomeTest --&gt;
+      &lt;/class&gt; &lt;!-- com.demowebshop.testscripts.RegisterTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Functional Test --&gt;
 &lt;/suite&gt; &lt;!-- Regression Suite --&gt;
@@ -203,14 +226,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyHomePageTitle')
-data.setCell(0, 2, 'com.demowebshop.testscripts.HomeTest')
-data.setCell(0, 3, 8);
+data.setCell(0, 1, 'verifyUserRegistration')
+data.setCell(0, 2, 'com.demowebshop.testscripts.RegisterTest')
+data.setCell(0, 3, 2033);
 window.suiteTableData['Regression_Suite']= { tableData: data, tableDiv: 'times-div-Regression_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 ms</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-Regression_Suite">
               </div> <!-- times-div-Regression_Suite -->
             </div> <!-- times-div -->
@@ -236,28 +259,28 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.demowebshop.testscripts.HomeTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.demowebshop.testscripts.RegisterTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">errorLogging</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
                 <span class="method-name">setup(chrome)</span>
-                <span class="method-start">229 ms</span>
+                <span class="method-start">174 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">verifyHomePageTitle</span>
-                <span class="method-start">11040 ms</span>
+                <span class="method-name">verifyUserRegistration</span>
+                <span class="method-start">6743 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyHomePageTitle status=FAILURE method=HomeTest.verifyHomePageTitle()[pri:1, ins...)</span>
-                <span class="method-start">11061 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyUserRegistration status=FAILURE method=RegisterTest.verifyUserRegistration()[...)</span>
+                <span class="method-start">8782 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">sendingEmail</span>
-                <span class="method-start">11560 ms</span>
+                <span class="method-start">9084 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

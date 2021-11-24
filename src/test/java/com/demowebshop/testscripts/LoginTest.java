@@ -17,16 +17,19 @@ import java.util.List;
 
 public class LoginTest extends Base {
 
-    HomePage home= new HomePage(driver);
+    HomePage home;
     UserAccountPage user;
     public ExtentReports report;
     static ExtentTest test;
     ExcelUtility excel;
-    private LoginPage loginPage;
+    LoginPage loginPage;
 
 
     @Test(priority = 5, enabled = true, description = "verification of User Login")
     public void verifyUserLogin() throws IOException {
+        home = new HomePage(driver);
+        loginPage = new LoginPage(driver);
+        excel=new ExcelUtility();
         loginPage = home.clickOnLoginMenu();
         List<String> readExcelData = excel.readExcel(Constants.EXCEL_FILE_PATH, Constants.SHEET_NAME_LOGIN_PAGE);
         loginPage.enterUserNameLogin(readExcelData.get(0));
@@ -35,7 +38,7 @@ public class LoginTest extends Base {
 
         user= loginPage.loginButtonClick();
 
-        String actualUserName = "roniyat@gmail.com";
+        String actualUserName = readExcelData.get(0);
         String expectedUserName = user.verifyUserName();
         Assert.assertEquals(actualUserName, expectedUserName, "ERROR : Login Failed");
     }
