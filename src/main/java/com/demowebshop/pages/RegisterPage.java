@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 public class RegisterPage {
 
@@ -103,4 +104,20 @@ public class RegisterPage {
         page.clickOnElement(registerButton);
         return new UserAccountPage(driver);
     }
+    public String randomStringGeneration(){
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        int length = 5;
+        for(int i = 0; i < length; i++) {
+            int index = random.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(index);
+            sb.append(randomChar);
+        }
+        String randomString = sb.toString()+"@gmail.com";
+        System.out.println("Random String is: " + randomString);
+        return randomString;
+    }
+
 }
+

@@ -33,16 +33,19 @@ public class RegisterTest extends Base {
         List<String> readExcelData = excel.readExcel(Constants.EXCEL_FILE_PATH, Constants.SHEET_NAME_REGISTRATION_PAGE);
 
         register=home.clickOnRegisterMenu();
+        String email = register.randomStringGeneration();
         register.selectGender(readExcelData.get(0));
         register.enterFirstName(readExcelData.get(1));
         register.enterLastName(readExcelData.get(2));
-        register.enterEmail(readExcelData.get(3));
+        register.enterEmail(email);
         register.enterPassword(readExcelData.get(4));
         register.enterConfirmPassword(readExcelData.get(5));
         user = register.clickOnRegisterButton();
 
-        String actualUserName=readExcelData.get(3);
+        String actualUserName=email;
         String expectedUserName=user.verifyUserName();
         Assert.assertEquals(actualUserName,expectedUserName,"ERROR : Login Failed");
     }
+
+
 }
