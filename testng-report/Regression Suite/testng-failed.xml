@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Regression Suite]">
-  <test thread-count="5" name="Functional Test(failed)">
+  <listeners>
+    <listener class-name="com.demowebshop.reports.ExtentReportListener"/>
+  </listeners>
+  <test thread-count="5" name="Functional Test(failed)" parallel="methods">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.demowebshop.testscripts.RegisterTest">
-        <methods>
-          <include name="errorLogging"/>
-          <include name="setup"/>
-          <include name="verifyUserRegistration"/>
-          <include name="endReport"/>
-          <include name="tearDown"/>
-          <include name="sendingEmail"/>
-        </methods>
-      </class> <!-- com.demowebshop.testscripts.RegisterTest -->
       <class name="com.demowebshop.testscripts.HomeTest">
         <methods>
           <include name="errorLogging"/>

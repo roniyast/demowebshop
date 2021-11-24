@@ -2,8 +2,6 @@ package com.demowebshop.testscripts;
 
 import com.demowebshop.automationcore.Base;
 import com.demowebshop.pages.HomePage;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
