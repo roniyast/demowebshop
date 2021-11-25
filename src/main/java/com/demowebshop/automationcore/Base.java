@@ -2,10 +2,7 @@ package com.demowebshop.automationcore;
 
 import com.demowebshop.constants.Constants;
 import com.demowebshop.utilities.EmailUtility;
-import com.demowebshop.utilities.WaitUtility;
-import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -17,14 +14,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import javax.mail.MessagingException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 
 public class Base {
@@ -81,11 +84,22 @@ public class Base {
     }
 
     @AfterSuite
-    public void sendingEmail(){
-        String dateName = new SimpleDateFormat("yyyyMMdd").format(new Date());
-        email = new EmailUtility();
-        email.sendEmail(System.getProperty("user.dir")+"//TestReport//","ExtentReport_"+dateName+".html", prop.getProperty("to_email"),prop);
-       // test.log(LogStatus.PASS, "Successfully triggered Email ");
+    public void sendingEmail() throws IOException, MessagingException {
+        List<String> filenames = new ArrayList<String>();
+
+        try (Stream<Path> filePathStream=Files.walk(Paths.get(System.getProperty("user.dir")+"//screenshots//"))) {
+            filePathStream.forEach(filePath -> {
+                if (Files.isRegularFile(filePath)) {
+                    filenames.add(filePath.toString());
+                }
+            });
+        }
+
+        String dateName = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        email = new EmailUtility(System.getProperty("user.dir")+"//TestReport//","ExtentReport_"+dateName+".html", prop.getProperty("to_email"),filenames,prop);
+        email.sendEmail();
+
+        // test.log(LogStatus.PASS, "Successfully triggered Email ");
 
     }
     public void takeScreenshot(ITestResult result) throws IOException {
