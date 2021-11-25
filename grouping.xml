@@ -6,6 +6,12 @@
     </listeners>
     <test name="Functional Test" >
         <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <include name="Regression"/>
+                <include name ="Sanity"/>
+            </run>
+        </groups>
         <classes>
             <class name="com.demowebshop.testscripts.HomeTest">
                 <methods>

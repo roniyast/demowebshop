@@ -28,7 +28,7 @@ public class LoginTest extends Base {
 
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-    @Test(priority = 5, enabled = true, description = "verification of User Login")
+    @Test(priority = 3, enabled = true, description = "verification of User Login")
     public void verifyUserLogin() throws IOException {
 
         extentTest.get().assignCategory("Sanity");
@@ -45,9 +45,11 @@ public class LoginTest extends Base {
         user= loginPage.loginButtonClick();
         extentTest.get().log(Status.PASS, "");
 
-        String actualUserName = readExcelData.get(0);
-        String expectedUserName = user.verifyUserName();
+        String actualUserName = user.verifyUserName();
+        extentTest.get().log(Status.PASS, "Actual Username generated");
+        String expectedUserName = readExcelData.get(0);
+        extentTest.get().log(Status.PASS, "Expected Username generated");
         Assert.assertEquals(actualUserName, expectedUserName, "ERROR : Login Failed");
-        extentTest.get().log(Status.PASS, "Verify title test case passed");
+        extentTest.get().log(Status.PASS, "Verify Successful Login test case passed");
     }
 }

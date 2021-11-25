@@ -42,7 +42,6 @@ public class HomePage {
     /*** user action methods ***/
     public String getActualHomePageTitle() {
         return page.getPageTitle(driver);
-
     }
 
     public String getExpectedHomePageTitle() throws IOException {

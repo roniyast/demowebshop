@@ -48,7 +48,7 @@ public class PageUtility {
         alert = driver.switchTo().alert();
         if(action.equals("accept")) {alert.accept();}
         else if (action.equals("dismiss")){alert.dismiss();}
-        else{}
+        else{System.out.println("No Action is selected");}
     }
     public void promptAlert(WebDriver driver,String message,String action)
     {
@@ -56,6 +56,7 @@ public class PageUtility {
         alert.sendKeys(message);
         if(action.equals("accept")) {alert.accept();}
         else if (action.equals("dismiss")){alert.dismiss();}
+        else{System.out.println("No Action is selected");}
     }
     public String getDataFromAlert(WebDriver driver)
     {

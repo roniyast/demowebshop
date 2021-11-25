@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Suite">
     <listeners>
-        <listener class-name="com.demowebshop.reports.ExtentReportListener">
+        <listener class-name="com.demowebshop.listener.TestListener">
         </listener>
     </listeners>
     <test name="Chrome Test">

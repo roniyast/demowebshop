@@ -2,12 +2,18 @@
 <testng-results skipped="0" failed="0" ignored="2" total="5" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Regression Suite" duration-ms="11692" started-at="2021-11-25T15:29:31 IST" finished-at="2021-11-25T15:29:43 IST">
+  <suite name="Regression Suite" duration-ms="28470" started-at="2021-11-25T20:09:57 IST" finished-at="2021-11-25T20:10:26 IST">
     <groups>
+      <group name="Sanity">
+        <method signature="RegisterTest.verifyUserRegistration()[pri:2, instance:com.demowebshop.testscripts.RegisterTest@1ad282e0]" name="verifyUserRegistration" class="com.demowebshop.testscripts.RegisterTest"/>
+      </group> <!-- Sanity -->
+      <group name="Regression">
+        <method signature="HomeTest.verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="verifyHomePageTitle" class="com.demowebshop.testscripts.HomeTest"/>
+      </group> <!-- Regression -->
     </groups>
-    <test name="Functional Test" duration-ms="11692" started-at="2021-11-25T15:29:31 IST" finished-at="2021-11-25T15:29:43 IST">
+    <test name="Functional Test" duration-ms="28470" started-at="2021-11-25T20:09:57 IST" finished-at="2021-11-25T20:10:26 IST">
       <class name="com.demowebshop.testscripts.LoginTest">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.LoginTest@51b279c9]" name="setup" is-config="true" duration-ms="9087" started-at="2021-11-25T15:29:32 IST" finished-at="2021-11-25T15:29:41 IST">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.LoginTest@51b279c9]" name="setup" is-config="true" duration-ms="6340" started-at="2021-11-25T20:10:09 IST" finished-at="2021-11-25T20:10:15 IST">
           <params>
             <param index="0">
               <value>
@@ -18,15 +24,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyUserLogin()[pri:5, instance:com.demowebshop.testscripts.LoginTest@51b279c9]" name="verifyUserLogin" duration-ms="1670" started-at="2021-11-25T15:29:41 IST" description="verification of User Login" finished-at="2021-11-25T15:29:42 IST">
+        <test-method status="PASS" signature="verifyUserLogin()[pri:3, instance:com.demowebshop.testscripts.LoginTest@51b279c9]" name="verifyUserLogin" duration-ms="2530" started-at="2021-11-25T20:10:15 IST" description="verification of User Login" finished-at="2021-11-25T20:10:17 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUserLogin -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.LoginTest@51b279c9]" name="tearDown" is-config="true" duration-ms="111" started-at="2021-11-25T15:29:42 IST" finished-at="2021-11-25T15:29:42 IST">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.LoginTest@51b279c9]" name="tearDown" is-config="true" duration-ms="76" started-at="2021-11-25T20:10:17 IST" finished-at="2021-11-25T20:10:18 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUserLogin status=SUCCESS method=LoginTest.verifyUserLogin()[pri:5, instance:com.demowebshop.testscripts.LoginTest@51b279c9] output={null}]]]>
+                <![CDATA[[TestResult name=verifyUserLogin status=SUCCESS method=LoginTest.verifyUserLogin()[pri:3, instance:com.demowebshop.testscripts.LoginTest@51b279c9] output={null}]]]>
               </value>
             </param>
           </params>
@@ -35,7 +41,7 @@
         </test-method> <!-- tearDown -->
       </class> <!-- com.demowebshop.testscripts.LoginTest -->
       <class name="com.demowebshop.testscripts.RegisterTest">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@1ad282e0]" name="setup" is-config="true" duration-ms="8142" started-at="2021-11-25T15:29:32 IST" finished-at="2021-11-25T15:29:40 IST">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@1ad282e0]" name="setup" is-config="true" duration-ms="5005" started-at="2021-11-25T20:10:18 IST" finished-at="2021-11-25T20:10:23 IST">
           <params>
             <param index="0">
               <value>
@@ -46,11 +52,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyUserRegistration()[pri:2, instance:com.demowebshop.testscripts.RegisterTest@1ad282e0]" name="verifyUserRegistration" duration-ms="3346" started-at="2021-11-25T15:29:40 IST" description="verification of Registration Title" finished-at="2021-11-25T15:29:43 IST">
+        <test-method status="PASS" signature="verifyUserRegistration()[pri:2, instance:com.demowebshop.testscripts.RegisterTest@1ad282e0]" name="verifyUserRegistration" duration-ms="2930" started-at="2021-11-25T20:10:23 IST" description="verification of Registration Title" finished-at="2021-11-25T20:10:25 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUserRegistration -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@1ad282e0]" name="tearDown" is-config="true" duration-ms="155" started-at="2021-11-25T15:29:43 IST" finished-at="2021-11-25T15:29:43 IST">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.RegisterTest@1ad282e0]" name="tearDown" is-config="true" duration-ms="157" started-at="2021-11-25T20:10:25 IST" finished-at="2021-11-25T20:10:26 IST">
           <params>
             <param index="0">
               <value>
@@ -63,7 +69,7 @@
         </test-method> <!-- tearDown -->
       </class> <!-- com.demowebshop.testscripts.RegisterTest -->
       <class name="com.demowebshop.testscripts.HomeTest">
-        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="setup" is-config="true" duration-ms="10283" started-at="2021-11-25T15:29:32 IST" finished-at="2021-11-25T15:29:42 IST">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="setup" is-config="true" duration-ms="10325" started-at="2021-11-25T20:09:57 IST" finished-at="2021-11-25T20:10:08 IST">
           <params>
             <param index="0">
               <value>
@@ -74,11 +80,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="verifyHomePageTitle" duration-ms="52" started-at="2021-11-25T15:29:42 IST" description="verification of home page Title" finished-at="2021-11-25T15:29:42 IST">
+        <test-method status="PASS" signature="verifyHomePageTitle()[pri:1, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="verifyHomePageTitle" duration-ms="910" started-at="2021-11-25T20:10:08 IST" description="verification of home page Title" finished-at="2021-11-25T20:10:08 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyHomePageTitle -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="tearDown" is-config="true" duration-ms="78" started-at="2021-11-25T15:29:42 IST" finished-at="2021-11-25T15:29:42 IST">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="tearDown" is-config="true" duration-ms="124" started-at="2021-11-25T20:10:08 IST" finished-at="2021-11-25T20:10:09 IST">
           <params>
             <param index="0">
               <value>
@@ -89,7 +95,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="sendingEmail()[pri:0, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="sendingEmail" is-config="true" duration-ms="5722" started-at="2021-11-25T15:29:43 IST" finished-at="2021-11-25T15:29:49 IST">
+        <test-method status="PASS" signature="sendingEmail()[pri:0, instance:com.demowebshop.testscripts.HomeTest@1d7acb34]" name="sendingEmail" is-config="true" duration-ms="24994" started-at="2021-11-25T20:10:26 IST" finished-at="2021-11-25T20:10:51 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendingEmail -->

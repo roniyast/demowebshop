@@ -26,12 +26,16 @@ public class RegisterTest extends Base {
 
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-    @Test(priority=2,enabled=true,description ="verification of Registration Title")
+    @Test(priority=2,enabled=true,description ="verification of Registration Title",groups = { "Sanity" })
     public void verifyUserRegistration() throws IOException {
+
+        extentTest.get().assignCategory("Sanity");
+
         home= new HomePage(driver);
         user = new UserAccountPage(driver);
         register = new RegisterPage(driver);
         excel=new ExcelUtility();
+
         List<String> readExcelData = excel.readExcel(Constants.EXCEL_FILE_PATH, Constants.SHEET_NAME_REGISTRATION_PAGE);
 
         register=home.clickOnRegisterMenu();
@@ -46,10 +50,12 @@ public class RegisterTest extends Base {
 
 
 
-        String actualUserName=email;
-        String expectedUserName=user.verifyUserName();
+        String actualUserName=user.verifyUserName();
+        extentTest.get().log(Status.PASS, "Actual Username generated");
+        String expectedUserName=email;
+        extentTest.get().log(Status.PASS, "Expected Username generated");
         Assert.assertEquals(actualUserName,expectedUserName,"ERROR : Login Failed");
-        extentTest.get().log(Status.PASS, "verify Registration test case passed");
+        extentTest.get().log(Status.PASS, "verify Successful Registration test case passed");
 
     }
 
