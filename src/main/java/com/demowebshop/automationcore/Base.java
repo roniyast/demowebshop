@@ -32,8 +32,7 @@ public class Base {
     FileInputStream file;
     public Properties prop;
     EmailUtility email;
-    public ExtentReports report;
-    public static ExtentTest test;
+    public static ExtentTest extentTest;
     public Base()   {
         try {
             file = new FileInputStream(System.getProperty("user.dir")+ Constants.CONFIG_FILE);
@@ -62,13 +61,7 @@ public class Base {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         //driver.manage().timeouts().pageLoadTimeout(WaitUtility.PAGE_LOAD_WAIT, TimeUnit.SECONDS);
-        test.log(LogStatus.PASS, "Successfully initialized test");
-    }
-
-    @BeforeTest
-    public void errorLogging(){
-        report = new ExtentReports(System.getProperty("user.dir")+"\\testng-report\\Extent.html",true);
-        test = report.startTest("Demo Web Shop");
+        //test.log(LogStatus.PASS, "Successfully initialized test");
     }
 
     @BeforeMethod
@@ -77,25 +70,22 @@ public class Base {
         String url= prop.getProperty("url");
         testInitialize(browserName);
         driver.get(url);
-        test.log(LogStatus.PASS, "Successfully Navigated to the url ");
+        //test.log(LogStatus.PASS, "Successfully Navigated to the url ");
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
        takeScreenshot(result);
-        test.log(LogStatus.PASS, "Successfully captured screen shot ");
+       // test.log(LogStatus.PASS, "Successfully captured screen shot ");
         driver.close();
     }
-    @AfterTest
-    public void endReport(){
-        report.endTest(test);
-        report.flush();
-    }
+
     @AfterSuite
     public void sendingEmail(){
+        String dateName = new SimpleDateFormat("yyyyMMdd").format(new Date());
         email = new EmailUtility();
-        email.sendEmail(System.getProperty("user.dir")+"\\testng-report\\","Extent.html", prop.getProperty("to_email"),prop);
-        test.log(LogStatus.PASS, "Successfully triggered Email ");
+        email.sendEmail(System.getProperty("user.dir")+"//TestReport//","ExtentReport_"+dateName+".html", prop.getProperty("to_email"),prop);
+       // test.log(LogStatus.PASS, "Successfully triggered Email ");
 
     }
     public void takeScreenshot(ITestResult result) throws IOException {

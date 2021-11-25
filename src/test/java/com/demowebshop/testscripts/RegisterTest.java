@@ -1,13 +1,15 @@
 package com.demowebshop.testscripts;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.demowebshop.automationcore.Base;
 import com.demowebshop.constants.Constants;
+import com.demowebshop.listener.TestListener;
 import com.demowebshop.pages.HomePage;
 import com.demowebshop.pages.RegisterPage;
 import com.demowebshop.pages.UserAccountPage;
 import com.demowebshop.utilities.ExcelUtility;
 import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,11 +19,12 @@ import java.util.List;
 
 public class RegisterTest extends Base {
 
-
     RegisterPage register;
     UserAccountPage user;
     ExcelUtility excel;
     HomePage home;
+
+    ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
     @Test(priority=2,enabled=true,description ="verification of Registration Title")
     public void verifyUserRegistration() throws IOException {
@@ -41,13 +44,13 @@ public class RegisterTest extends Base {
         register.enterConfirmPassword(readExcelData.get(5));
         user = register.clickOnRegisterButton();
 
-        test.log(LogStatus.PASS, "Successfully Registered");
+
 
         String actualUserName=email;
         String expectedUserName=user.verifyUserName();
         Assert.assertEquals(actualUserName,expectedUserName,"ERROR : Login Failed");
+        extentTest.get().log(Status.PASS, "verify Registration test case passed");
 
-        test.log(LogStatus.PASS, "Successfully Asserted");
     }
 
 

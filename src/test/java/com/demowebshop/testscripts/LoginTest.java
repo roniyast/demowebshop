@@ -1,14 +1,16 @@
 package com.demowebshop.testscripts;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.demowebshop.automationcore.Base;
 import com.demowebshop.constants.Constants;
+import com.demowebshop.listener.TestListener;
 import com.demowebshop.pages.HomePage;
 import com.demowebshop.pages.LoginPage;
 import com.demowebshop.pages.RegisterPage;
 import com.demowebshop.pages.UserAccountPage;
 import com.demowebshop.utilities.ExcelUtility;
 import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,9 +26,12 @@ public class LoginTest extends Base {
     ExcelUtility excel;
     LoginPage loginPage;
 
+    ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
     @Test(priority = 5, enabled = true, description = "verification of User Login")
     public void verifyUserLogin() throws IOException {
+
+        extentTest.get().assignCategory("Sanity");
 
         home = new HomePage(driver);
         loginPage = new LoginPage(driver);
@@ -38,11 +43,11 @@ public class LoginTest extends Base {
         loginPage.RememberMeLoginCheck(readExcelData.get(2));
 
         user= loginPage.loginButtonClick();
-        test.log(LogStatus.PASS, "Successfully Logged in");
+        extentTest.get().log(Status.PASS, "");
 
         String actualUserName = readExcelData.get(0);
         String expectedUserName = user.verifyUserName();
         Assert.assertEquals(actualUserName, expectedUserName, "ERROR : Login Failed");
-        test.log(LogStatus.PASS, "Successfully Asserted");
+        extentTest.get().log(Status.PASS, "Verify title test case passed");
     }
 }

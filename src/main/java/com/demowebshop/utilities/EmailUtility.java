@@ -1,7 +1,5 @@
 package com.demowebshop.utilities;
 
-import com.demowebshop.constants.Constants;
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -54,14 +52,13 @@ public class EmailUtility {
             BodyPart attachmentPart = new MimeBodyPart();
             Multipart multipart = new MimeMultipart();
 
-            String file = filePath + fileName;
-            System.out.println(file);
+            String file = filePath + "//" + fileName;
             DataSource source = new FileDataSource(file);
             attachmentPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setText("Dear Stakeholder,\n" +
                     "\n" +
                     "These are the test results of \"Demo Web Shop Project\" . Automation execution was conducted on " + eDate + ".\n" +
-                    "\n" +" PFA .\n\n\n"+
+                    "\n"+
                     "Thanks & Regards,\n" +
                     "Automation Team");
             attachmentPart.setFileName(fileName);
