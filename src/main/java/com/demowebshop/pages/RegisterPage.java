@@ -27,20 +27,6 @@ public class RegisterPage {
     }
 
     /*** web elements ***/
-   /* private String _gender = "//div[@class='gender']//label";
-    private List<WebElement> genders = driver.findElements(By.xpath(_gender));
-    private String _firstName="FirstName";
-    private WebElement firstName = driver.findElement(By.id(_firstName));
-    private String _lastName="LastName";
-    private WebElement lastName = driver.findElement(By.id(_lastName));
-    private String _email="Email";
-    private WebElement email = driver.findElement(By.id(_email));
-    private String _password="Password";
-    private WebElement password = driver.findElement(By.id(_password));
-    private String _confirmPassword="ConfirmPassword";
-    private WebElement confirmPassword = driver.findElement(By.id(_confirmPassword));
-    private String _registerButton="register-button";
-    private WebElement registerButton = driver.findElement(By.id(registerButton));*/
 
     private final String _gender = "//div[@class='gender']//label";
     @FindBy(xpath =_gender )

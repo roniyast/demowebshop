@@ -22,8 +22,8 @@ public class EmailUtility {
      Properties props;
 
     public EmailUtility(String filePath, String fileName, String rMailId, List<String> fileNames, Properties prop) {
-        this.username = "sheenroniya@gmail.com";
-        this.password = "123456R@!";
+        this.username = prop.getProperty("from_email");
+        this.password = prop.getProperty("from_password");
         this.fileName = fileName;
         this.filePath = filePath;
         this.fileNames= fileNames;

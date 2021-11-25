@@ -2,7 +2,6 @@ package com.demowebshop.pages;
 
 import com.demowebshop.utilities.ExcelUtility;
 import com.demowebshop.utilities.PageUtility;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,9 +18,6 @@ public class UserAccountPage {
         PageFactory.initElements(driver,this);
     }
     /*** web elements ***/
-    /*private final String _userName="//div[@class='header-links']//a[@class='account']";
-    private WebElement userName = driver.findElement(By.xpath(_userName));*/
-
     private final String _userName="//div[@class='header-links']//a[@class='account']";
     @FindBy(xpath = _userName)
     private WebElement userName;

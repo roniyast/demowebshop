@@ -5,7 +5,6 @@ import com.aventstack.extentreports.Status;
 import com.demowebshop.automationcore.Base;
 import com.demowebshop.listener.TestListener;
 import com.demowebshop.pages.HomePage;
-import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,7 +15,7 @@ public class HomeTest extends Base {
     HomePage home;
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-    @Test(priority=1,enabled=true,description ="verification of home page Title",groups = { "Regression" })
+    @Test(priority=1,enabled=true,description ="verification of home page Title",groups ="Regression")
     public void verifyHomePageTitle() throws IOException {
 
         extentTest.get().assignCategory("Regression");

@@ -18,14 +18,6 @@ public class LoginPage {
     }
 
     /*** web elements ***/
-    /*private final String _userNameLogin = "//input[@id='Email']";
-    private final WebElement userNamelogin = driver.findElement(By.xpath(_userNameLogin));
-    private final String _passwordLogin = "//input[@id='Password']";
-    private final WebElement passwordLogin = driver.findElement(By.xpath(_passwordLogin));
-    private final String _rememberMe = "//input[@id='RememberMe']";
-    private final WebElement rememberMe = driver.findElement(By.xpath(_rememberMe));
-    private final String _loginButton = "//input[@class='button-1 login-button']";
-    private final WebElement loginButton = driver.findElement(By.xpath(_loginButton));*/
 
     private final String _userNameLogin = "//input[@id='Email']";
     @FindBy(xpath =_userNameLogin )

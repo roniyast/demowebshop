@@ -26,7 +26,7 @@ public class RegisterTest extends Base {
 
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-    @Test(priority=2,enabled=true,description ="verification of Registration Title",groups = { "Sanity" })
+    @Test(priority=2,enabled=true,description ="verification of Registration Title",groups ="Sanity")
     public void verifyUserRegistration() throws IOException {
 
         extentTest.get().assignCategory("Sanity");

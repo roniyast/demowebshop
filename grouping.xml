@@ -9,7 +9,7 @@
         <groups>
             <run>
                 <include name="Regression"/>
-                <include name ="Sanity"/>
+                <exclude name="Sanity"/>
             </run>
         </groups>
         <classes>

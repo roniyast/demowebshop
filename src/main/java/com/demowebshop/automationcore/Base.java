@@ -64,22 +64,18 @@ public class Base {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         //driver.manage().timeouts().pageLoadTimeout(WaitUtility.PAGE_LOAD_WAIT, TimeUnit.SECONDS);
-        //test.log(LogStatus.PASS, "Successfully initialized test");
     }
-
-    @BeforeMethod
     @Parameters("browser")
+    @BeforeMethod(alwaysRun = true)
     public void setup(String browserName) {
         String url= prop.getProperty("url");
         testInitialize(browserName);
         driver.get(url);
-        //test.log(LogStatus.PASS, "Successfully Navigated to the url ");
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
        takeScreenshot(result);
-       // test.log(LogStatus.PASS, "Successfully captured screen shot ");
         driver.close();
     }
 
@@ -98,9 +94,6 @@ public class Base {
         String dateName = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         email = new EmailUtility(System.getProperty("user.dir")+"//TestReport//","ExtentReport_"+dateName+".html", prop.getProperty("to_email"),filenames,prop);
         email.sendEmail();
-
-        // test.log(LogStatus.PASS, "Successfully triggered Email ");
-
     }
     public void takeScreenshot(ITestResult result) throws IOException {
         if(ITestResult.FAILURE == result.getStatus()){
@@ -114,6 +107,5 @@ public class Base {
         }
 
     }
-
 
 }

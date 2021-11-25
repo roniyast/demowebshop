@@ -12,7 +12,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 
 public class HomePage {
     WebDriver driver;
@@ -26,10 +25,6 @@ public class HomePage {
     }
 
     /*** web elements ***/
-    /*private String _registerMenu = "//a[@class='ico-register']";
-    private final WebElement registerMenu = driver.findElement(By.xpath(_registerMenu));
-    private String _loginMenu = "//a[@class='ico-login']";
-    private final WebElement loginMenu = driver.findElement(By.xpath(_loginMenu));*/
 
     private final String _registerMenu ="//a[@class='ico-register']";
     @FindBy(xpath =_registerMenu)

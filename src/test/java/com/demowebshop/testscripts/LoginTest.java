@@ -28,7 +28,7 @@ public class LoginTest extends Base {
 
     ThreadLocal<ExtentTest> extentTest = TestListener.getTestInstance();
 
-    @Test(priority = 3, enabled = true, description = "verification of User Login")
+    @Test(priority = 3, enabled = true, description = "verification of User Login",groups="Sanity")
     public void verifyUserLogin() throws IOException {
 
         extentTest.get().assignCategory("Sanity");
