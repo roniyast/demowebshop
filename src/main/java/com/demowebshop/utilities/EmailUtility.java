@@ -13,26 +13,26 @@ import java.util.Properties;
 
 public class EmailUtility {
 
-      String username;
-      String password;
-      String fileName;
-      String filePath;
-      String rMailId;
-      List<String> fileNames;
-     Properties props;
+    String username;
+    String password;
+    String fileName;
+    String filePath;
+    String rMailId;
+    List<String> fileNames;
+    Properties prop;
 
     public EmailUtility(String filePath, String fileName, String rMailId, List<String> fileNames, Properties prop) {
-        this.username = prop.getProperty("from_email");
-        this.password = prop.getProperty("from_password");
+        this.prop = prop;
         this.fileName = fileName;
         this.filePath = filePath;
-        this.fileNames= fileNames;
-        this.rMailId=rMailId;
-        this.props=prop;
-
+        this.fileNames = fileNames;
+        this.rMailId = rMailId;
     }
 
-    public  void sendEmail() throws MessagingException, IOException {
+    public void sendEmail() throws MessagingException, IOException {
+
+        username = prop.getProperty("from_email");
+        password = prop.getProperty("from_password");
         String eDate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         Properties props = new Properties();
         props.put("mail.smtp.auth", true);
@@ -52,25 +52,24 @@ public class EmailUtility {
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress("mail@gmail.com"));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(rMailId));
-        message.setSubject("Demo Web Shop_"+eDate);
+        message.setSubject("Demo Web Shop_" + eDate);
 
         BodyPart messageBodyPart = new MimeBodyPart();
         messageBodyPart.setText("Dear Stakeholder,\n" +
                 "\n" +
                 "These are the test results of \"Demo Web Shop Project\" . Automation execution was conducted on " + eDate + ".\n" +
-                "\n"+
+                "\n" +
                 "Thanks & Regards,\n" +
                 "Automation Team");
 
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(messageBodyPart);
-        for(int i=0;i<fileNames.size();i++) {
-            System.out.println(fileNames.get(i));
-            if(fileNames.get(i).contains(eDate)){
-                System.out.println("true");
-            MimeBodyPart attachmentPart = new MimeBodyPart();
-            attachmentPart.attachFile(fileNames.get(i));
-            multipart.addBodyPart(attachmentPart);
+        for (int i = 0; i < fileNames.size(); i++) {
+
+            if (fileNames.get(i).contains(eDate)) {
+                MimeBodyPart attachmentPart = new MimeBodyPart();
+                attachmentPart.attachFile(fileNames.get(i));
+                multipart.addBodyPart(attachmentPart);
             }
         }
         message.setContent(multipart);

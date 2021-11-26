@@ -14,7 +14,7 @@ public class ExtentReportManager {
     static String dateName = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
     public static ExtentReports extent;
     public static Platform platform;
-    private static final String reportFileName = "ExtentReport_"+dateName+".html";
+    private static final String reportFileName = "ExtentReport_" + dateName + ".html";
     private static final String macPath = System.getProperty("user.dir") + "/TestReport";
     private static final String windowsPath = System.getProperty("user.dir") + "\\TestReport";
     private static final String macReportFileLoc = macPath + "/" + reportFileName;

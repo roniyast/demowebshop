@@ -1,29 +1,29 @@
 package com.demowebshop.pages;
 
-import com.demowebshop.utilities.ExcelUtility;
-import com.demowebshop.utilities.PageUtility;
+import com.demowebshop.utilities.TestHelperUtility;
+import com.demowebshop.utilities.WaitUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class UserAccountPage {
+public class UserAccountPage extends TestHelperUtility {
     WebDriver driver;
-    PageUtility page = new PageUtility();
-    ExcelUtility excel = new ExcelUtility();
 
     /*** page Constructor ***/
     public UserAccountPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
+
     /*** web elements ***/
-    private final String _userName="//div[@class='header-links']//a[@class='account']";
+    private final String _userName = "//div[@class='header-links']//a[@class='account']";
     @FindBy(xpath = _userName)
     private WebElement userName;
 
     /*** user action methods ***/
-    public String verifyUserName(){
+    public String verifyUserName() {
+        //wait.waitForVisibilityOfElement(driver, WaitUtility.LocatorType.Xpath,_userName);
         return page.getElementText(userName);
     }
 

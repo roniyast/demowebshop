@@ -1,37 +1,31 @@
 package com.demowebshop.pages;
 
-import com.demowebshop.automationcore.Base;
 import com.demowebshop.constants.Constants;
-import com.demowebshop.utilities.ExcelUtility;
-import com.demowebshop.utilities.PageUtility;
-import org.openqa.selenium.By;
+import com.demowebshop.utilities.TestHelperUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.io.IOException;
 import java.util.List;
 
-public class HomePage {
+public class HomePage extends TestHelperUtility {
     WebDriver driver;
-    PageUtility page = new PageUtility();
-    ExcelUtility excel = new ExcelUtility();
 
     /*** page Constructor ***/
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     /*** web elements ***/
 
-    private final String _registerMenu ="//a[@class='ico-register']";
-    @FindBy(xpath =_registerMenu)
+    private final String _registerMenu = "//a[@class='ico-register']";
+    @FindBy(xpath = _registerMenu)
     private WebElement registerMenu;
 
-    private final String _loginMenu ="//a[@class='ico-login']";
-    @FindBy(xpath =_loginMenu)
+    private final String _loginMenu = "//a[@class='ico-login']";
+    @FindBy(xpath = _loginMenu)
     private WebElement loginMenu;
 
     /*** user action methods ***/
@@ -48,7 +42,8 @@ public class HomePage {
         page.clickOnElement(registerMenu);
         return new RegisterPage(driver);
     }
-    public LoginPage clickOnLoginMenu(){
+
+    public LoginPage clickOnLoginMenu() {
         System.out.println(driver);
         page.clickOnElement(loginMenu);
         return new LoginPage(driver);

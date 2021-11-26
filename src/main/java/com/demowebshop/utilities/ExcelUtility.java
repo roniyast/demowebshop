@@ -19,7 +19,7 @@ public class ExcelUtility {
 
     public List<String> readExcel(String excel, String sheetName) throws IOException {
 
-        String path = System.getProperty("user.dir")+ File.separator+ excel;
+        String path = System.getProperty("user.dir") + File.separator + excel;
         List<String> list = new ArrayList<String>();
         DataFormatter formatter = new DataFormatter();
         FileInputStream file = new FileInputStream(path);

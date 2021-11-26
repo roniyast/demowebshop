@@ -36,19 +36,21 @@ public class Base {
     public Properties prop;
     EmailUtility email;
     public static ExtentTest extentTest;
-    public Base()   {
+
+    public Base() {
         try {
-            file = new FileInputStream(System.getProperty("user.dir")+ Constants.CONFIG_FILE);
+            file = new FileInputStream(System.getProperty("user.dir") + Constants.CONFIG_FILE);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        prop=new Properties();
+        prop = new Properties();
         try {
             prop.load(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @Deprecated
     public void testInitialize(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
@@ -65,17 +67,19 @@ public class Base {
         driver.manage().window().maximize();
         //driver.manage().timeouts().pageLoadTimeout(WaitUtility.PAGE_LOAD_WAIT, TimeUnit.SECONDS);
     }
+
+
+    @BeforeMethod/*(alwaysRun = true)*/
     @Parameters("browser")
-    @BeforeMethod(alwaysRun = true)
     public void setup(String browserName) {
-        String url= prop.getProperty("url");
+        String url = prop.getProperty("url");
         testInitialize(browserName);
         driver.get(url);
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
-       takeScreenshot(result);
+        takeScreenshot(result);
         driver.close();
     }
 
@@ -83,7 +87,7 @@ public class Base {
     public void sendingEmail() throws IOException, MessagingException {
         List<String> filenames = new ArrayList<String>();
 
-        try (Stream<Path> filePathStream=Files.walk(Paths.get(System.getProperty("user.dir")+"//screenshots//"))) {
+        try (Stream<Path> filePathStream = Files.walk(Paths.get(System.getProperty("user.dir") + "//screenshots//"))) {
             filePathStream.forEach(filePath -> {
                 if (Files.isRegularFile(filePath)) {
                     filenames.add(filePath.toString());
@@ -92,18 +96,19 @@ public class Base {
         }
 
         String dateName = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        email = new EmailUtility(System.getProperty("user.dir")+"//TestReport//","ExtentReport_"+dateName+".html", prop.getProperty("to_email"),filenames,prop);
+        email = new EmailUtility(System.getProperty("user.dir") + "//TestReport//", "ExtentReport_" + dateName + ".html", prop.getProperty("to_email"), filenames, prop);
         email.sendEmail();
     }
+
     public void takeScreenshot(ITestResult result) throws IOException {
-        if(ITestResult.FAILURE == result.getStatus()){
+        if (ITestResult.FAILURE == result.getStatus()) {
 
             TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
             File screenshot = takesScreenshot.getScreenshotAs(OutputType.FILE);
             Date date = new Date();
             String dateFormatted = new SimpleDateFormat("dd-MM-yyyy").format(date);
-            String FileName = result.getName()+"_"+dateFormatted;
-            FileUtils.copyFile(screenshot,new File("./Screenshots/"+FileName+".png"));
+            String FileName = result.getName() + "_" + dateFormatted;
+            FileUtils.copyFile(screenshot, new File("./Screenshots/" + FileName + ".png"));
         }
 
     }

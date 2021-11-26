@@ -8,7 +8,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestListener  extends Base implements ITestListener {
+public class TestListener extends Base implements ITestListener {
 
     //Extent Report Declarations
     private static final ExtentReports extent = ExtentReportManager.createInstance();
@@ -55,7 +55,7 @@ public class TestListener  extends Base implements ITestListener {
         System.out.println(("onTestFailedButWithinSuccessPercentage for " + result.getMethod().getMethodName()));
     }
 
-    public static ThreadLocal<ExtentTest> getTestInstance(){
+    public static ThreadLocal<ExtentTest> getTestInstance() {
         return test;
     }
 }

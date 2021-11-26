@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Suite">
+    <parameter name="browser" value="chrome"/>
     <listeners>
         <listener class-name="com.demowebshop.listener.TestListener"/>
     </listeners>
     <test name="Functional Test" >
-        <parameter name="browser" value="chrome"/>
         <groups>
             <run>
                 <include name="Regression"/>
